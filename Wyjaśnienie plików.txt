@@ -11,7 +11,7 @@ Pliki:
 
 config.yaml --> plik konfiguracyjny 
 
-Snakefile 
+Snakefile...
 
 main.nf --> Nextflow 
 
