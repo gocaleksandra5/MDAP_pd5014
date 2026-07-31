@@ -16,10 +16,16 @@ Snakefile
 main.nf --> Nextflow 
 
 
-Struktura katalogu: 
+Struktura katalogu głównego: 
 
 -pliki: SRA.sh, adapter.sh, genomreferencyjny.sh, graf.png, Snakefile, main.nf
 -foldery: SRR23609077, adapters, genom, input, output 
+
+Folder SRR23609077 zawiera plik SRR23609077.sra
+Folder adapters zawiera plik TruSeq3-PE.fa
+Folder genom zawiera pliki NC_045512.2.fasta, NC_045512.2.amb, NC_045512.2.ann, NC_045512.2.bwt, NC_045512.2.fai, NC_045512.2.pac, NC_045512.2.sa
+Folder input zawiera pliki SRR23609077_1.fastq.gz i SRR23609077_2.fastq.gz
+
 
 
 Opis uruchomienia i działania: 
