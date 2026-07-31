@@ -1,0 +1,19 @@
+sample: "SRR23609077"
+
+reads:
+  R1: "input/SRR23609077_1.fastq.gz"
+  R2: "input/SRR23609077_2.fastq.gz"
+
+reference: "genom/NC_045512.2.fasta"
+
+adapter: "adapters/TruSeq3-PE.fa"
+
+output: "output"
+
+threads: 4
+
+trimmomatic:
+  leading: 20
+  trailing: 20
+  slidingwindow: "5:20"
+  minlen: 50
