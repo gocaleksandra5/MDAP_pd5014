@@ -1,0 +1,44 @@
+Pobrane dane: 
+
+SRA.sh   --> najpierw znalazłam na stronie NCBI próbę virusa z dania (https://www.ncbi.nlm.nih.gov/biosample/SAMN33344176/), następnie wybrałam numer SRR (https://www.ncbi.nlm.nih.gov/sra/SRX19493981[accn]) zdecydowałam się na zmodyfikowaną wersje. Dane które wykorzystałam w projekcje to: SRR23609077. Kod tworzy najpierw folder o nazwie SRR23609077 w którym umieszcza pobrane dane sekwencji a następnie tworzy folder input, w którym umieszcza rozpakowane pliki 1 i 2 fastq. 
+
+adapter.sh --> tworzy folder o nazwie adapters. Ściąga adapter potrzebny do trimmingu.
+
+genomreferencyjny.sh --> tworzy folder o nazwie genom i pobiera genom referencyjny. 
+
+
+Pliki: 
+
+config.yaml --> plik konfiguracyjny 
+
+Snakefile 
+
+main.nf --> Nextflow 
+
+
+Struktura katalogu: 
+
+-pliki: SRA.sh, adapter.sh, genomreferencyjny.sh, graf.png, Snakefile, main.nf
+-foldery: SRR23609077, adapters, genom, input, output 
+
+
+Opis uruchomienia i działania: 
+
+W terminalu należy uruchomić trzy pliki pobierające dane: SRA.sh, adapter.sh, genomreferencyjny.sh. 
+Należy osobno utworzyć katalog output. 
+Poleceniem: conda activate snakemake -  aktywuje środowisko snakemake. 
+Poleceniem: snakemake --cores 4   - aktywuje Snakefile 
+
+Plik Snakefile tworzy foldery z określonymi plikami: fastqc_raw, trimmed, fastqc_trimmed, bam, coverage, variants, multiqc
+
+System działania: 
+FastQC przed trimmingiem -> Trimmomatic -> FastQC po trimmingu -> indeksowanie genomu -> sortowanie BAM -> indeksowanie BAM -> ocena pokrycia -> detekcja wariantów -> MultiQC.
+
+
+Poleceniem: snakemake --dag | dot -Tpng > graf.png    - tworzę graf DAG 
+
+
+nextflow run main.nf -with-docker 
+
+
+ 
